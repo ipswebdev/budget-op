@@ -1,0 +1,13 @@
+.split{
+    &__person{
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+        display: flex;
+        justify-content: space-between;
+        border:  1px solid rgba($color: (#000000), $alpha: 0.6);
+        border-radius: 4px;
+        margin-bottom: 5px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}

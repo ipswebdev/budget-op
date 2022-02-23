@@ -1,0 +1,13 @@
+<div class="split"> 
+    <h3>Do you want to split the expense? <span class="split__toggle" (click)="shareExpense=!shareExpense">{{ (shareExpense)? 'Not-Share' : 'Share'}}</span></h3>
+    <div *ngIf="shareExpense">
+        <div class="split__add">
+            <input type="text" [(ngModel)]="person.name" placeholder="Add Sharing Person">
+            <input type="text" [(ngModel)]="person.amount" placeholder="Person to share">
+            <button (click)="addPeople(person.name,person.amount)">Add</button>    
+        </div>
+        <div class="split__people" [hidden]="!item.value" *ngFor="let item of people | keyvalue">
+        <div class="split__person" *ngIf="item.value.isAdded">{{ item.key }} - {{ item.value.amount }} <span (click)="removePeople(item)">X</span></div>
+        </div>
+    </div>
+</div>
