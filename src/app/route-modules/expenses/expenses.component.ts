@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpensesComponent implements OnInit {
 
+  addExpense : boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
+  toggleExpense(){
+    this.addExpense = !this.addExpense;
+  }
+  
 
 }

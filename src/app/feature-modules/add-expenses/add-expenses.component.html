@@ -1,0 +1,13 @@
+<div class="add-expense">
+    <input type="number" min="0" [(ngModel)]="expense.value" placeholder="0">
+    <input type="text" [(ngModel)]="expense.description" placeholder="What was this expense for?">
+    <input type="text" [(ngModel)]="expense.category" placeholder="Category">
+    <button (click)="toggleSplit()">Split: {{expense.split ? 'No' : 'Yes'}}</button>
+    <button (click)="addExpense()">Add</button>    
+</div>
+
+<app-expense-splitting *ngIf="expense?.split"></app-expense-splitting>
+
+<div *ngFor="let expense of addedExpenses; let i=index">
+    {{expense?.description}}
+</div>

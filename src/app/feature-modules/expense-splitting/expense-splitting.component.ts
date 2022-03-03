@@ -12,7 +12,7 @@ export class ExpenseSplittingComponent implements OnInit {
     amount: 0,
     name: '' 
   };
-  shareExpense : boolean = false;
+  
   people = {};
   ngOnInit(): void {
   }
