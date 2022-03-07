@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Expense } from 'src/app/models/expense';
 import { ExpensesService } from 'src/app/services/expenses.service';
 
 @Component({
@@ -8,19 +9,9 @@ import { ExpensesService } from 'src/app/services/expenses.service';
 })
 export class AddExpensesComponent implements OnInit {
 
-  expense = {
-    category: '',
-    description: '',
-    value: 0,
-    split: false,
-  };
+  expense :Expense = new Expense(0,false,'','');
 
-  addedExpenses : {
-    category: string,
-    description: string,
-    value: number,
-    split: boolean,
-  }[] = []
+  addedExpenses :Expense[] = []
   constructor(private expensesService: ExpensesService) { }
 
   ngOnInit(): void {
@@ -36,12 +27,13 @@ export class AddExpensesComponent implements OnInit {
       if(!this.expense.category){
         this.expense.category = 'General';
       }
+      console.log(this.expense);
       this.expense.category = this.expense.category ? this.expense.category : 'General';
       this.expense.description = this.expense.description ? this.expense.description : '';
       this.expense.split = this.expense.split ? this.expense.split : false;
       this.expensesService.splitExpense.next(true);
-      this.expensesService.addExpenses(this.expense);
-      //this.addedExpenses.push(this.expense);
+      // this.expensesService.addExpenses(this.expense);
+      this.addedExpenses.push(this.expense);
       
     }
   }
